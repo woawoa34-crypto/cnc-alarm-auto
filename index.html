@@ -849,6 +849,165 @@
         padding: 2px 4px;
       }
 
+      /* Result Secondary Actions (Favorite/Memo + Share Link) */
+      .result-util-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .result-util-btn {
+        appearance: none;
+        min-height: 48px;
+        padding: 0 12px;
+        border-radius: var(--radius-control);
+        border: 1px solid var(--border-strong);
+        background-color: var(--bg-card);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: border-color 140ms var(--ease-out), background-color 140ms var(--ease-out), transform 100ms var(--ease-out);
+      }
+
+      .result-util-btn:hover {
+        background-color: var(--bg-elevated);
+      }
+
+      .result-util-btn:active {
+        transform: scale(0.97);
+      }
+
+      .result-util-btn.is-saved {
+        border-color: rgba(255, 152, 0, 0.7);
+        background-color: var(--accent-orange-dim);
+        color: var(--accent-orange);
+      }
+
+      .result-memo-banner {
+        background-color: rgba(255, 152, 0, 0.1);
+        border: 1px solid rgba(255, 152, 0, 0.35);
+        border-radius: var(--radius-control);
+        padding: 10px 14px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #ffe0b2;
+      }
+
+      .result-memo-banner-text {
+        min-width: 0;
+        flex: 1;
+        word-break: break-word;
+      }
+
+      .result-memo-edit-link {
+        appearance: none;
+        background: transparent;
+        border: none;
+        color: var(--accent-orange);
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        font-weight: 800;
+        cursor: pointer;
+        padding: 2px 6px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Favorites / Field Memo Panel */
+      .favorites-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .fav-item {
+        display: flex;
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .fav-main-btn {
+        appearance: none;
+        flex: 1;
+        min-width: 0;
+        min-height: 56px;
+        padding: 10px 12px;
+        background-color: var(--bg-input);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-control);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+        transition: border-color 140ms var(--ease-out), background-color 140ms var(--ease-out);
+      }
+
+      .fav-main-btn:hover {
+        border-color: rgba(255, 152, 0, 0.55);
+        background-color: #202020;
+      }
+
+      .fav-codes {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+        font-size: 0.9375rem;
+        font-weight: 800;
+      }
+
+      .fav-alarm {
+        color: var(--accent-orange);
+      }
+
+      .fav-db2 {
+        color: var(--accent-cyan);
+        font-size: 0.875rem;
+      }
+
+      .fav-memo {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        line-height: 1.4;
+        word-break: break-word;
+      }
+
+      .fav-action-btn {
+        appearance: none;
+        width: 44px;
+        min-height: 56px;
+        border-radius: var(--radius-control);
+        border: 1px solid var(--border-subtle);
+        background-color: var(--bg-input);
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        font-weight: 700;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .fav-action-btn:hover {
+        border-color: var(--accent-orange);
+        color: var(--accent-orange);
+      }
+
       /* =====================================================================
          TAB 3: DEDICATED FULL-HEIGHT PDF MANUAL VIEWER
          ===================================================================== */
@@ -991,6 +1150,7 @@
       }
 
       .vt-indicator {
+        appearance: none;
         min-height: 44px;
         padding: 0 9px;
         border-radius: 10px;
@@ -999,6 +1159,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 4px;
         font-family: var(--font-mono);
         font-size: 0.8125rem;
         font-weight: 700;
@@ -1008,9 +1169,25 @@
         flex-shrink: 0;
       }
 
+      button.vt-indicator {
+        cursor: pointer;
+        transition: border-color 140ms var(--ease-out), background-color 140ms var(--ease-out);
+      }
+
+      button.vt-indicator:hover:not(:disabled) {
+        border-color: var(--accent-orange);
+        background-color: #252525;
+      }
+
+      button.vt-indicator:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+
       .vt-indicator.is-match {
         color: var(--accent-orange);
-        border-color: rgba(255, 152, 0, 0.45);
+        border-color: rgba(255, 152, 0, 0.55);
+        background-color: var(--accent-orange-dim);
       }
 
       /* Fullscreen Floating Translucent Toolbar (Occupies < 10% height) */
@@ -1081,13 +1258,24 @@
       }
 
       .vf-page {
+        appearance: none;
+        min-height: 44px;
         font-family: var(--font-mono);
         font-size: 0.8125rem;
         font-weight: 800;
         font-variant-numeric: tabular-nums;
         color: #ffffff;
-        padding: 0 6px;
+        background-color: rgba(38, 38, 38, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 10px;
+        padding: 0 10px;
         white-space: nowrap;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .vf-page:active {
+        border-color: var(--accent-orange);
       }
 
       /* Continuous 2D Scrollable PDF Viewport */
@@ -1474,6 +1662,141 @@
         gap: 10px;
       }
 
+      .modal-actions-3 {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        gap: 8px;
+      }
+
+      .memo-textarea {
+        width: 100%;
+        min-height: 96px;
+        padding: 12px 14px;
+        border-radius: var(--radius-control);
+        border: 1.5px solid var(--border-strong);
+        background-color: var(--bg-input);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 0.9375rem;
+        line-height: 1.5;
+        resize: vertical;
+      }
+
+      .memo-textarea:focus {
+        outline: none;
+        border-color: var(--accent-orange);
+      }
+
+      .memo-code-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background-color: var(--bg-input);
+        border: 1px solid var(--border-subtle);
+        font-family: var(--font-mono);
+        font-size: 0.9375rem;
+        font-weight: 800;
+      }
+
+      /* Search Match List Bottom Sheet / Modal */
+      .match-sheet-dialog {
+        width: 100%;
+        max-width: 560px;
+        max-height: 82dvh;
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-card);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72);
+      }
+
+      .match-sheet-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .match-sheet-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 0;
+      }
+
+      .match-sheet-item {
+        appearance: none;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-subtle);
+        background-color: var(--bg-input);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .match-sheet-item.is-active {
+        border-color: var(--accent-orange);
+        background-color: rgba(255, 152, 0, 0.12);
+      }
+
+      .match-sheet-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.8125rem;
+        font-weight: 800;
+        color: var(--accent-orange);
+      }
+
+      .match-sheet-file {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
+      }
+
+      .match-sheet-page {
+        font-family: var(--font-mono);
+        flex-shrink: 0;
+        color: var(--accent-cyan);
+      }
+
+      .match-sheet-snippet {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        line-height: 1.45;
+        word-break: break-word;
+      }
+
+      .match-sheet-snippet mark {
+        background-color: rgba(255, 152, 0, 0.35);
+        color: #ffffff;
+        padding: 0 3px;
+        border-radius: 3px;
+        font-weight: 700;
+      }
+
+      /* Pinch-Zoom Hardware Acceleration */
+      .pdf-pages-container.is-pinching {
+        will-change: transform;
+      }
+
       /* Toast */
       .toast {
         position: fixed;
@@ -1814,11 +2137,36 @@
               <span id="btnJumpToManualText">매뉴얼 해당 페이지 바로보기 (총 0건) →</span>
             </button>
 
+            <div id="resultUtilRow" class="result-util-row hidden">
+              <button id="btnToggleFavorite" class="result-util-btn" type="button">
+                <span id="btnToggleFavoriteText">☆ 즐겨찾기 · 메모</span>
+              </button>
+              <button id="btnShareLink" class="result-util-btn" type="button">
+                <span>공유 링크 복사</span>
+              </button>
+            </div>
+
+            <div id="resultMemoBanner" class="result-memo-banner hidden">
+              <div id="resultMemoBannerText" class="result-memo-banner-text"></div>
+              <button id="btnEditCurrentMemo" class="result-memo-edit-link" type="button">수정</button>
+            </div>
+
             <div id="manualMatchNote" class="manual-match-note hidden"></div>
           </div>
         </div>
 
         <aside class="calc-secondary">
+          <section class="panel" aria-labelledby="favoritesHeading">
+            <div class="panel-header">
+              <h2 id="favoritesHeading" class="panel-label">즐겨찾기 · 현장 조치 메모</h2>
+              <span class="panel-hint" id="favoritesCountHint">0개</span>
+            </div>
+            <ul id="favoritesList" class="favorites-list"></ul>
+            <div id="favoritesEmpty" class="history-empty">
+              변환 결과 아래 [즐겨찾기 · 메모]로 자주 뜨는 알람과 조치법을 저장할 수 있습니다.
+            </div>
+          </section>
+
           <section class="panel" aria-labelledby="historyHeading">
             <div class="panel-header">
               <h2 id="historyHeading" class="panel-label">최근 조회 기록 (최대 5개)</h2>
@@ -1858,7 +2206,7 @@
       <section id="viewerWorkspace" class="viewer-workspace hidden" aria-label="원본 PDF 매뉴얼 뷰어">
         <!-- 일반 탭 3 상단 2단 콤팩트 툴바 -->
         <div class="viewer-toolbar-normal">
-          <!-- 툴바 1줄: PDF 파일 선택 + 검색 결과 네비게이션 + 전체화면 -->
+          <!-- 툴바 1줄: PDF 파일 선택 + 새로고침 + 검색 결과 네비게이션 + 회전 + 전체화면 -->
           <div class="vt-row">
             <select
               id="pdfFileSelect"
@@ -1869,19 +2217,27 @@
               <option value="">등록된 PDF 매뉴얼 없음</option>
             </select>
 
-            <span id="vtMatchIndicator" class="vt-indicator is-match hidden">검색 0/0건</span>
+            <button id="btnReloadActivePdf" class="vt-btn" type="button" title="현재 매뉴얼 서버에서 새로 받기" aria-label="현재 매뉴얼 새로고침">
+              ↻
+            </button>
+            <button id="vtMatchIndicator" class="vt-indicator is-match hidden" type="button" aria-label="검색 결과 전체 목록 보기">
+              검색 0/0건 ▾
+            </button>
             <button id="btnPrevMatch" class="vt-btn hidden" type="button" aria-label="이전 검색 결과">
-              ◀ 이전
+              ◀
             </button>
             <button id="btnNextMatch" class="vt-btn is-orange-outline hidden" type="button" aria-label="다음 검색 결과">
-              다음 ▶
+              ▶
+            </button>
+            <button id="btnRotatePdf" class="vt-btn" type="button" title="90도 회전" aria-label="90도 회전">
+              ⟳
             </button>
             <button id="btnEnterFullscreen" class="vt-btn is-orange-outline" type="button" aria-label="전체화면 확대보기">
               전체화면
             </button>
           </div>
 
-          <!-- 툴바 2줄: 키워드 직접 검색창 + 페이지 표시 + 축소/확대/맞춤 -->
+          <!-- 툴바 2줄: 키워드 직접 검색창 + 페이지 점프 버튼 + 축소/확대/맞춤 -->
           <div class="vt-row">
             <input
               id="manualKeywordInput"
@@ -1894,7 +2250,9 @@
             <button id="btnManualSearch" class="vt-btn is-orange" type="button">
               검색
             </button>
-            <span id="pdfPageIndicator" class="vt-indicator" aria-live="polite">0/0p</span>
+            <button id="pdfPageIndicator" class="vt-indicator" type="button" aria-live="polite" aria-label="페이지 번호 직접 이동" disabled>
+              0/0p
+            </button>
             <button id="btnZoomOut" class="vt-btn" type="button" aria-label="축소">−</button>
             <button id="btnZoomIn" class="vt-btn" type="button" aria-label="확대">+</button>
             <button id="btnZoomFit" class="vt-btn" type="button">맞춤</button>
@@ -1904,11 +2262,13 @@
         <!-- 전체화면(100dvh 모달) 전용 반투명 플로팅 상단 툴바 -->
         <div class="viewer-floating-bar" aria-label="전체화면 PDF 툴바">
           <div class="vf-group">
-            <span id="vfPageIndicator" class="vf-page">0/0</span>
-            <button id="vfBtnPrev" class="vf-btn hidden" type="button">◀ 이전검색</button>
-            <button id="vfBtnNext" class="vf-btn is-accent hidden" type="button">다음검색 ▶</button>
+            <button id="vfPageIndicator" class="vf-page" type="button" aria-label="페이지 번호 직접 이동">0/0</button>
+            <button id="vfMatchIndicator" class="vf-btn is-accent hidden" type="button" aria-label="검색 결과 전체 목록">목록</button>
+            <button id="vfBtnPrev" class="vf-btn hidden" type="button" aria-label="이전 검색">◀</button>
+            <button id="vfBtnNext" class="vf-btn is-accent hidden" type="button" aria-label="다음 검색">▶</button>
           </div>
           <div class="vf-group">
+            <button id="vfBtnRotate" class="vf-btn" type="button" aria-label="90도 회전">⟳</button>
             <button id="vfBtnZoomOut" class="vf-btn" type="button" aria-label="축소">−</button>
             <button id="vfBtnQuickZoom" class="vf-btn is-accent" type="button" aria-label="원터치 배율 전환">1.5x</button>
             <button id="vfBtnZoomIn" class="vf-btn" type="button" aria-label="확대">+</button>
@@ -1944,6 +2304,60 @@
         <div class="modal-actions">
           <button id="btnAdminCancel" class="btn-control" type="button">취소</button>
           <button id="btnAdminSubmit" class="btn-control btn-accent-solid" type="submit">확인</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 페이지 번호 직접 이동 모달 -->
+    <div id="pageJumpModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="pageJumpModalTitle">
+      <form id="pageJumpForm" class="modal-dialog">
+        <h2 id="pageJumpModalTitle" class="modal-title">페이지 바로 이동</h2>
+        <p id="pageJumpRangeDesc" class="modal-desc">이동할 페이지 번호를 입력하세요 (1 ~ 1).</p>
+        <input
+          id="pageJumpInput"
+          class="field-input"
+          type="number"
+          min="1"
+          inputmode="numeric"
+          placeholder="페이지 번호"
+          autocomplete="off"
+        />
+        <div class="modal-actions">
+          <button id="btnPageJumpCancel" class="btn-control" type="button">취소</button>
+          <button id="btnPageJumpSubmit" class="btn-control btn-accent-solid" type="submit">이동</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 검색 결과 한눈에 보기 시트 모달 -->
+    <div id="matchListModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="matchListModalTitle">
+      <div class="match-sheet-dialog">
+        <div class="match-sheet-header">
+          <h2 id="matchListModalTitle" class="modal-title">검색 결과 목록 (0건)</h2>
+          <button id="btnMatchListClose" class="vt-btn" type="button">✕ 닫기</button>
+        </div>
+        <ul id="matchListItems" class="match-sheet-list"></ul>
+      </div>
+    </div>
+
+    <!-- 알람 즐겨찾기 / 현장 조치 메모 모달 -->
+    <div id="memoModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="memoModalTitle">
+      <form id="memoForm" class="modal-dialog">
+        <h2 id="memoModalTitle" class="modal-title">즐겨찾기 · 현장 조치 메모</h2>
+        <div id="memoCodeSummary" class="memo-code-summary">
+          <span id="memoAlarmLabel" class="fav-alarm">700000</span>
+          <span id="memoDb2Label" class="fav-db2">DB2.DBX180.0</span>
+        </div>
+        <textarea
+          id="memoTextarea"
+          class="memo-textarea"
+          maxlength="240"
+          placeholder="예: 칩 컨베이어 과부하 · 패널 릴레이 K14 확인 후 리셋 (비워두면 즐겨찾기만 저장)"
+        ></textarea>
+        <div class="modal-actions-3">
+          <button id="btnMemoDelete" class="btn-control btn-danger-outline hidden" type="button">삭제</button>
+          <button id="btnMemoCancel" class="btn-control" type="button">취소</button>
+          <button id="btnMemoSave" class="btn-control btn-accent-solid" type="submit">저장</button>
         </div>
       </form>
     </div>
@@ -1992,11 +2406,13 @@
       // =========================================================================
       (function () {
         const HISTORY_STORAGE_KEY = 'sinumerik840d_db2_history_v1';
+        const FAVORITES_STORAGE_KEY = 'sinumerik840d_favorites_v1';
         const MAX_HISTORY = 5;
         const IDB_NAME = 'Sinumerik840DPdfViewerDB';
-        const IDB_VERSION = 2;
+        const IDB_VERSION = 3;
         const IDB_STORE = 'localManuals';
         const IDB_CACHE_STORE = 'remotePdfCache';
+        const IDB_META_STORE = 'appMeta';
         const REMOTE_CACHE_MAX_BYTES = 260 * 1024 * 1024; // 모바일 기기 저장공간 보호 상한 (260MB)
         const REMOTE_CACHE_MAX_FILES = 12;
 
@@ -2029,17 +2445,22 @@
           currentCopyText: '',
           currentConversion: null,  // { alarmStr, db2Address, shortDb2 }
           history: [],
+          favorites: [],            // [{ alarmStr, db2Address, memo, updatedAt }]
+          editingMemoTarget: null,  // { alarmStr, db2Address }
           isAdmin: false,
           isParsingPdf: false,
+          isOfflineIndex: false,
           localManuals: [],
           remoteManuals: [],
           cachedRemoteFiles: new Set(),
+          cachedRemoteMeta: new Map(), // fileName -> { byteLength, cachedAt, pageCount }
           catalog: [],
           activeFileName: '',
           activePdfDoc: null,
           activeDocSource: '',      // 'local' | 'cache' | 'stream' | 'blob'
           activePageCount: 0,
           currentVisiblePage: 1,
+          rotation: 0,              // 0 | 90 | 180 | 270
           zoomMode: 'fit',          // 'fit' | 'custom'
           zoomMultiplier: 1.0,      // relative to fitScale (1.0, 1.5, 2.0, etc.)
           fitScale: 1.0,
@@ -2051,7 +2472,7 @@
           renderingPages: new Set(),
           failedPages: new Set(),
           activeHighlights: [],
-          searchMatches: [],        // [{ fileName, pageNum, matchedTerms }]
+          searchMatches: [],        // [{ fileName, pageNum, matchedTerms, snippet }]
           currentMatchIdx: -1,
           pendingJumpMatchIdx: null,
           isFullscreen: false
@@ -2129,9 +2550,19 @@
         const resultBreakdown = document.getElementById('resultBreakdown');
         const btnJumpToManual = document.getElementById('btnJumpToManual');
         const btnJumpToManualText = document.getElementById('btnJumpToManualText');
+        const resultUtilRow = document.getElementById('resultUtilRow');
+        const btnToggleFavorite = document.getElementById('btnToggleFavorite');
+        const btnToggleFavoriteText = document.getElementById('btnToggleFavoriteText');
+        const btnShareLink = document.getElementById('btnShareLink');
+        const resultMemoBanner = document.getElementById('resultMemoBanner');
+        const resultMemoBannerText = document.getElementById('resultMemoBannerText');
+        const btnEditCurrentMemo = document.getElementById('btnEditCurrentMemo');
         const manualMatchNote = document.getElementById('manualMatchNote');
 
-        // DOM Elements - History
+        // DOM Elements - Favorites & History
+        const favoritesCountHint = document.getElementById('favoritesCountHint');
+        const favoritesList = document.getElementById('favoritesList');
+        const favoritesEmpty = document.getElementById('favoritesEmpty');
         const historyList = document.getElementById('historyList');
         const historyEmpty = document.getElementById('historyEmpty');
         const btnClearHistory = document.getElementById('btnClearHistory');
@@ -2139,9 +2570,11 @@
         // DOM Elements - Tab 3 PDF Viewer
         const viewerWorkspace = document.getElementById('viewerWorkspace');
         const pdfFileSelect = document.getElementById('pdfFileSelect');
+        const btnReloadActivePdf = document.getElementById('btnReloadActivePdf');
         const vtMatchIndicator = document.getElementById('vtMatchIndicator');
         const btnPrevMatch = document.getElementById('btnPrevMatch');
         const btnNextMatch = document.getElementById('btnNextMatch');
+        const btnRotatePdf = document.getElementById('btnRotatePdf');
         const btnEnterFullscreen = document.getElementById('btnEnterFullscreen');
         const manualKeywordInput = document.getElementById('manualKeywordInput');
         const btnManualSearch = document.getElementById('btnManualSearch');
@@ -2152,8 +2585,10 @@
 
         // Fullscreen Floating Toolbar Elements
         const vfPageIndicator = document.getElementById('vfPageIndicator');
+        const vfMatchIndicator = document.getElementById('vfMatchIndicator');
         const vfBtnPrev = document.getElementById('vfBtnPrev');
         const vfBtnNext = document.getElementById('vfBtnNext');
+        const vfBtnRotate = document.getElementById('vfBtnRotate');
         const vfBtnZoomOut = document.getElementById('vfBtnZoomOut');
         const vfBtnQuickZoom = document.getElementById('vfBtnQuickZoom');
         const vfBtnZoomIn = document.getElementById('vfBtnZoomIn');
@@ -2163,6 +2598,26 @@
         const pdfScrollViewport = document.getElementById('pdfScrollViewport');
         const pdfPagesContainer = document.getElementById('pdfPagesContainer');
         const pdfEmptyView = document.getElementById('pdfEmptyView');
+
+        // Modals (Page Jump, Match List Sheet, Memo)
+        const pageJumpModal = document.getElementById('pageJumpModal');
+        const pageJumpForm = document.getElementById('pageJumpForm');
+        const pageJumpRangeDesc = document.getElementById('pageJumpRangeDesc');
+        const pageJumpInput = document.getElementById('pageJumpInput');
+        const btnPageJumpCancel = document.getElementById('btnPageJumpCancel');
+
+        const matchListModal = document.getElementById('matchListModal');
+        const matchListModalTitle = document.getElementById('matchListModalTitle');
+        const matchListItems = document.getElementById('matchListItems');
+        const btnMatchListClose = document.getElementById('btnMatchListClose');
+
+        const memoModal = document.getElementById('memoModal');
+        const memoForm = document.getElementById('memoForm');
+        const memoAlarmLabel = document.getElementById('memoAlarmLabel');
+        const memoDb2Label = document.getElementById('memoDb2Label');
+        const memoTextarea = document.getElementById('memoTextarea');
+        const btnMemoDelete = document.getElementById('btnMemoDelete');
+        const btnMemoCancel = document.getElementById('btnMemoCancel');
 
         // Toast
         const toast = document.getElementById('toast');
@@ -2176,6 +2631,13 @@
         // =====================================================================
         // 공용 유틸리티 & GitHub Pages 한글/특수문자 경로 안정화
         // =====================================================================
+        function formatBytes(bytes) {
+          const n = Number(bytes) || 0;
+          if (n <= 0) return '0KB';
+          if (n < 1024 * 1024) return Math.max(1, Math.round(n / 1024)) + 'KB';
+          return (n / (1024 * 1024)).toFixed(1) + 'MB';
+        }
+
         function escapeHtml(str) {
           return String(str)
             .replace(/&/g, '&amp;')
@@ -2250,6 +2712,9 @@
               }
               if (!db.objectStoreNames.contains(IDB_CACHE_STORE)) {
                 db.createObjectStore(IDB_CACHE_STORE, { keyPath: 'fileName' });
+              }
+              if (!db.objectStoreNames.contains(IDB_META_STORE)) {
+                db.createObjectStore(IDB_META_STORE, { keyPath: 'key' });
               }
             };
             req.onsuccess = function () {
@@ -2333,8 +2798,58 @@
           });
         }
 
-        // --- 원격 PDF 자동 캐시 (LRU 용량 관리 포함) ---
-        function listRemoteCacheKeysFromDb() {
+        // --- 원격 manual_index.json 오프라인 백업 (IndexedDB appMeta) ---
+        function saveRemoteIndexBackupToDb(payload) {
+          return openDb().then(function (db) {
+            return new Promise(function (resolve) {
+              if (!db.objectStoreNames.contains(IDB_META_STORE)) {
+                db.close();
+                resolve(false);
+                return;
+              }
+              const tx = db.transaction(IDB_META_STORE, 'readwrite');
+              tx.objectStore(IDB_META_STORE).put({
+                key: 'remoteIndexBackup',
+                payload: payload,
+                savedAt: Date.now()
+              });
+              tx.oncomplete = function () {
+                db.close();
+                resolve(true);
+              };
+              tx.onerror = function () {
+                db.close();
+                resolve(false);
+              };
+            });
+          });
+        }
+
+        function loadRemoteIndexBackupFromDb() {
+          return openDb().then(function (db) {
+            return new Promise(function (resolve) {
+              if (!db.objectStoreNames.contains(IDB_META_STORE)) {
+                db.close();
+                resolve(null);
+                return;
+              }
+              const tx = db.transaction(IDB_META_STORE, 'readonly');
+              const req = tx.objectStore(IDB_META_STORE).get('remoteIndexBackup');
+              req.onsuccess = function () {
+                const rec = req.result || null;
+                db.close();
+                resolve(rec && rec.payload ? rec.payload : null);
+              };
+              req.onerror = function () {
+                db.close();
+                resolve(null);
+              };
+            });
+          });
+        }
+
+        // --- 원격 PDF 자동 캐시 (LRU 용량 관리 + 버전/용량 메타 조회 포함) ---
+        function listRemoteCacheMetaFromDb() {
           return openDb().then(function (db) {
             return new Promise(function (resolve, reject) {
               if (!db.objectStoreNames.contains(IDB_CACHE_STORE)) {
@@ -2344,18 +2859,28 @@
               }
               const tx = db.transaction(IDB_CACHE_STORE, 'readonly');
               const store = tx.objectStore(IDB_CACHE_STORE);
-              const req = store.getAllKeys ? store.getAllKeys() : store.getAll();
-              req.onsuccess = function () {
-                db.close();
-                const res = Array.isArray(req.result) ? req.result : [];
-                const keys = res.map(function (item) {
-                  return typeof item === 'string' ? item : item && item.fileName ? item.fileName : '';
-                }).filter(Boolean);
-                resolve(keys);
+              const metaList = [];
+              const cursorReq = store.openCursor();
+
+              cursorReq.onsuccess = function (event) {
+                const cursor = event.target.result;
+                if (cursor) {
+                  const v = cursor.value || {};
+                  metaList.push({
+                    fileName: v.fileName || cursor.key,
+                    byteLength: v.byteLength || (v.pdfData ? v.pdfData.byteLength : 0),
+                    cachedAt: v.cachedAt || 0,
+                    pageCount: v.pageCount || 0
+                  });
+                  cursor.continue();
+                } else {
+                  db.close();
+                  resolve(metaList);
+                }
               };
-              req.onerror = function () {
+              cursorReq.onerror = function () {
                 db.close();
-                reject(req.error || new Error('캐시 목록 조회 실패'));
+                reject(cursorReq.error || new Error('캐시 메타 조회 실패'));
               };
             });
           });
@@ -2385,6 +2910,30 @@
               req.onerror = function () {
                 db.close();
                 reject(req.error || new Error('캐시 읽기 실패'));
+              };
+            });
+          });
+        }
+
+        function deleteRemoteCacheFromDb(fileName) {
+          return openDb().then(function (db) {
+            return new Promise(function (resolve) {
+              if (!db.objectStoreNames.contains(IDB_CACHE_STORE)) {
+                db.close();
+                resolve();
+                return;
+              }
+              const tx = db.transaction(IDB_CACHE_STORE, 'readwrite');
+              tx.objectStore(IDB_CACHE_STORE).delete(fileName);
+              tx.oncomplete = function () {
+                db.close();
+                state.cachedRemoteFiles.delete(fileName);
+                state.cachedRemoteMeta.delete(fileName);
+                resolve();
+              };
+              tx.onerror = function () {
+                db.close();
+                resolve();
               };
             });
           });
@@ -2456,6 +3005,7 @@
                   const sz = row.byteLength || (row.pdfData ? row.pdfData.byteLength : 0);
                   store.delete(row.fileName);
                   state.cachedRemoteFiles.delete(row.fileName);
+                  state.cachedRemoteMeta.delete(row.fileName);
                   totalBytes -= sz;
                   remainingFiles -= 1;
                   freedBytes += sz;
@@ -2475,16 +3025,18 @@
           });
         }
 
-        async function saveRemoteCacheToDb(fileName, arrayBuffer) {
+        async function saveRemoteCacheToDb(fileName, arrayBuffer, meta) {
           if (!arrayBuffer || arrayBuffer.byteLength === 0) return false;
           // 단일 파일이 모바일 안전 캐시 상한을 넘으면 저장 생략
           if (arrayBuffer.byteLength > REMOTE_CACHE_MAX_BYTES) return false;
 
           const now = Date.now();
+          const pageCount = meta && meta.pageCount ? meta.pageCount : 0;
           const record = {
             fileName: fileName,
             pdfData: arrayBuffer,
             byteLength: arrayBuffer.byteLength,
+            pageCount: pageCount,
             cachedAt: now,
             lastAccessedAt: now
           };
@@ -2512,9 +3064,18 @@
             });
           };
 
+          const markCachedMeta = function () {
+            state.cachedRemoteFiles.add(fileName);
+            state.cachedRemoteMeta.set(fileName, {
+              byteLength: record.byteLength,
+              cachedAt: record.cachedAt,
+              pageCount: record.pageCount
+            });
+          };
+
           try {
             await writeOnce();
-            state.cachedRemoteFiles.add(fileName);
+            markCachedMeta();
             await evictOldestRemoteCache(fileName, 0);
             renderAdminManualList();
             return true;
@@ -2524,7 +3085,7 @@
               if (evicted > 0) {
                 try {
                   await writeOnce();
-                  state.cachedRemoteFiles.add(fileName);
+                  markCachedMeta();
                   renderAdminManualList();
                   return true;
                 } catch (_) {
@@ -2559,38 +3120,65 @@
         }
 
         // =====================================================================
-        // 원격 manual_index.json 로드 및 카탈로그 병합
+        // 원격 manual_index.json 로드 (버전 파싱 + 오프라인 자동 백업/복구)
         // =====================================================================
+        function parseRemoteIndexPayload(data) {
+          const rootUpdatedMs =
+            data && data.updatedAt && !isNaN(Date.parse(data.updatedAt))
+              ? Date.parse(data.updatedAt)
+              : 0;
+          const rawList = Array.isArray(data)
+            ? data
+            : data && Array.isArray(data.manuals)
+            ? data.manuals
+            : [];
+
+          return rawList
+            .filter(function (item) {
+              return item && typeof item.fileName === 'string' && Array.isArray(item.pages);
+            })
+            .map(function (item) {
+              const itemUpdatedMs =
+                item.updatedAt && !isNaN(Date.parse(item.updatedAt))
+                  ? Date.parse(item.updatedAt)
+                  : rootUpdatedMs;
+              return {
+                fileName: item.fileName,
+                pageCount: item.pageCount || item.pages.length,
+                pages: item.pages,
+                remoteVersionMs: itemUpdatedMs,
+                source: 'remote',
+                remoteUrl: buildRemotePdfUrl(REMOTE_PDF_BASE_URL, item.fileName, 'NFC'),
+                remoteUrlNfd: buildRemotePdfUrl(REMOTE_PDF_BASE_URL, item.fileName, 'NFD'),
+                readablePath: buildReadablePdfPath(REMOTE_PDF_BASE_URL, item.fileName)
+              };
+            });
+        }
+
         async function fetchRemoteIndex() {
           try {
             const sep = REMOTE_INDEX_URL.indexOf('?') === -1 ? '?' : '&';
             const url = REMOTE_INDEX_URL + sep + 't=' + Date.now();
             const res = await fetch(url, { cache: 'no-store' });
-            if (!res.ok) return [];
+            if (!res.ok) throw new Error('HTTP ' + res.status);
             const data = await res.json();
-            const rawList = Array.isArray(data)
-              ? data
-              : data && Array.isArray(data.manuals)
-              ? data.manuals
-              : [];
-
-            return rawList
-              .filter(function (item) {
-                return item && typeof item.fileName === 'string' && Array.isArray(item.pages);
-              })
-              .map(function (item) {
-                return {
-                  fileName: item.fileName,
-                  pageCount: item.pageCount || item.pages.length,
-                  pages: item.pages,
-                  source: 'remote',
-                  remoteUrl: buildRemotePdfUrl(REMOTE_PDF_BASE_URL, item.fileName, 'NFC'),
-                  remoteUrlNfd: buildRemotePdfUrl(REMOTE_PDF_BASE_URL, item.fileName, 'NFD'),
-                  readablePath: buildReadablePdfPath(REMOTE_PDF_BASE_URL, item.fileName)
-                };
-              });
+            const parsed = parseRemoteIndexPayload(data);
+            if (parsed.length > 0) {
+              saveRemoteIndexBackupToDb(data).catch(function () {});
+            }
+            return { manuals: parsed, fromOfflineCache: false };
           } catch (_) {
-            return [];
+            // 오프라인/공장 음영지역: IndexedDB에 백업된 마지막 정상 인덱스 자동 복구
+            try {
+              const backupPayload = await loadRemoteIndexBackupFromDb();
+              if (backupPayload) {
+                const backupManuals = parseRemoteIndexPayload(backupPayload);
+                if (backupManuals.length > 0) {
+                  return { manuals: backupManuals, fromOfflineCache: true };
+                }
+              }
+            } catch (__) {}
+            return { manuals: [], fromOfflineCache: false };
           }
         }
 
@@ -2675,6 +3263,15 @@
           });
 
           const cachedRemoteCount = state.cachedRemoteFiles.size;
+          let totalCacheBytes = 0;
+          state.cachedRemoteMeta.forEach(function (meta) {
+            totalCacheBytes += meta && meta.byteLength ? meta.byteLength : 0;
+          });
+          const cacheSummaryStr =
+            cachedRemoteCount > 0
+              ? '원격캐시 ' + cachedRemoteCount + '개 (' + formatBytes(totalCacheBytes) + ')'
+              : '원격캐시 0개';
+
           adminCatalogSummary.textContent =
             '전체 ' +
             state.catalog.length +
@@ -2682,9 +3279,8 @@
             totalPages +
             'p) · 로컬 ' +
             state.localManuals.length +
-            '개 · 원격캐시 ' +
-            cachedRemoteCount +
-            '개';
+            '개 · ' +
+            cacheSummaryStr;
 
           btnDownloadIndex.disabled = state.catalog.length === 0;
           btnClearLocalManuals.disabled = state.localManuals.length === 0;
@@ -2712,6 +3308,7 @@
 
             const isCachedRemote =
               manual.source !== 'local' && state.cachedRemoteFiles.has(manual.fileName);
+            const cachedMeta = state.cachedRemoteMeta.get(manual.fileName);
             const metaEl = document.createElement('span');
             metaEl.className = 'manual-file-meta';
             metaEl.textContent =
@@ -2720,7 +3317,10 @@
               (manual.source === 'local'
                 ? '로컬 IndexedDB'
                 : isCachedRemote
-                ? '원격 서버 · 기기 캐시됨'
+                ? '원격 서버 · 기기 캐시됨' +
+                  (cachedMeta && cachedMeta.byteLength
+                    ? ' (' + formatBytes(cachedMeta.byteLength) + ')'
+                    : '')
                 : '원격 서버 인덱스');
 
             info.appendChild(nameEl);
@@ -3103,6 +3703,7 @@
               }
             });
             state.cachedRemoteFiles.clear();
+            state.cachedRemoteMeta.clear();
             renderAdminManualList();
             showToast('원격 PDF 기기 캐시를 모두 비웠습니다');
           } catch (err) {
@@ -3117,13 +3718,15 @@
             return;
           }
 
+          const nowIso = new Date().toISOString();
           const payload = {
-            version: 1,
-            updatedAt: new Date().toISOString(),
+            version: 2,
+            updatedAt: nowIso,
             manuals: state.catalog.map(function (m) {
               return {
                 fileName: m.fileName,
                 pageCount: m.pageCount,
+                updatedAt: m.savedAt ? new Date(m.savedAt).toISOString() : nowIso,
                 pages: m.pages
               };
             })
@@ -3244,6 +3847,11 @@
           throw lastErr || new Error('원격 PDF 다운로드 실패');
         }
 
+        function getEffectivePageRotation(pageObj) {
+          const intrinsic = pageObj && typeof pageObj.rotate === 'number' ? pageObj.rotate : 0;
+          return (intrinsic + (state.rotation || 0)) % 360;
+        }
+
         function cacheRemotePdfInBackground(manualEntry) {
           if (!manualEntry || manualEntry.source === 'local') return;
           if (state.cachedRemoteFiles.has(manualEntry.fileName)) return;
@@ -3255,7 +3863,9 @@
           setTimeout(function () {
             fetchRemotePdfArrayBuffer(manualEntry)
               .then(function (buf) {
-                return saveRemoteCacheToDb(manualEntry.fileName, buf);
+                return saveRemoteCacheToDb(manualEntry.fileName, buf, {
+                  pageCount: manualEntry.pageCount || state.activePageCount || 0
+                });
               })
               .then(function (saved) {
                 if (saved && state.activeFileName === manualEntry.fileName) {
@@ -3288,7 +3898,9 @@
                 state.activePdfDoc = blobDoc;
                 state.activeDocSource = 'blob';
               }
-              saveRemoteCacheToDb(fileName, saveCopy).catch(function () {});
+              saveRemoteCacheToDb(fileName, saveCopy, {
+                pageCount: blobDoc.numPages || entry.pageCount || 0
+              }).catch(function () {});
               return true;
             } catch (_) {
               return false;
@@ -3349,17 +3961,38 @@
             return bundled;
           }
 
-          // 2) 자동 캐싱된 원격 PDF가 기기 IndexedDB에 있는 경우 즉시 로컬 로드 (지연 0)
+          // 2) 자동 캐싱된 원격 PDF가 기기 IndexedDB에 있는 경우 버전 검증 후 즉시 로컬 로드
           try {
             const cachedRec = await getRemoteCacheFromDb(manualEntry.fileName);
             if (cachedRec && cachedRec.pdfData && cachedRec.pdfData.byteLength > 0) {
-              const cachedDoc = await window.pdfjsLib.getDocument(
-                Object.assign({ data: cachedRec.pdfData.slice(0) }, PDFJS_COMMON_OPTS)
-              ).promise;
-              state.cachedRemoteFiles.add(manualEntry.fileName);
-              const bundled = { doc: cachedDoc, source: 'cache' };
-              pdfDocCache.set(manualEntry.fileName, bundled);
-              return bundled;
+              const isNewerOnServer =
+                !state.isOfflineIndex &&
+                manualEntry.remoteVersionMs > 0 &&
+                (cachedRec.cachedAt || 0) < manualEntry.remoteVersionMs;
+              const isPageCountChanged =
+                !state.isOfflineIndex &&
+                cachedRec.pageCount > 0 &&
+                manualEntry.pageCount > 0 &&
+                cachedRec.pageCount !== manualEntry.pageCount;
+
+              if (isNewerOnServer || isPageCountChanged) {
+                // 서버에 새 버전이 배포되었으면 구버전 캐시를 자동 무효화
+                await deleteRemoteCacheFromDb(manualEntry.fileName);
+                renderAdminManualList();
+              } else {
+                const cachedDoc = await window.pdfjsLib.getDocument(
+                  Object.assign({ data: cachedRec.pdfData.slice(0) }, PDFJS_COMMON_OPTS)
+                ).promise;
+                state.cachedRemoteFiles.add(manualEntry.fileName);
+                state.cachedRemoteMeta.set(manualEntry.fileName, {
+                  byteLength: cachedRec.byteLength || cachedRec.pdfData.byteLength,
+                  cachedAt: cachedRec.cachedAt || 0,
+                  pageCount: cachedRec.pageCount || cachedDoc.numPages || 0
+                });
+                const bundled = { doc: cachedDoc, source: 'cache' };
+                pdfDocCache.set(manualEntry.fileName, bundled);
+                return bundled;
+              }
             }
           } catch (_) {
             // 캐시 읽기 실패 시 원격 스트리밍으로 자연스럽게 진행
@@ -3420,7 +4053,9 @@
                 ).promise;
                 const bundled = { doc: blobDoc, source: 'blob' };
                 pdfDocCache.set(manualEntry.fileName, bundled);
-                saveRemoteCacheToDb(manualEntry.fileName, saveCopy).catch(function () {});
+                saveRemoteCacheToDb(manualEntry.fileName, saveCopy, {
+                  pageCount: blobDoc.numPages || manualEntry.pageCount || 0
+                }).catch(function () {});
                 return bundled;
               } catch (_) {}
             }
@@ -3452,6 +4087,7 @@
           if (!isSameFile) {
             const mySession = ++openSessionId;
             releaseAllRenderedCanvases();
+            state.rotation = 0;
             state.activeFileName = fileName;
             pdfFileSelect.value = fileName;
             pdfPagesContainer.innerHTML = '';
@@ -3477,7 +4113,10 @@
               const clampedInitial = Math.max(1, Math.min(pdfDoc.numPages, targetPage || 1));
               const samplePage = await pdfDoc.getPage(clampedInitial);
               if (mySession !== openSessionId) return;
-              const baseVp = samplePage.getViewport({ scale: 1 });
+              const baseVp = samplePage.getViewport({
+                scale: 1,
+                rotation: getEffectivePageRotation(samplePage)
+              });
               state.basePageWidth = baseVp.width;
               state.basePageHeight = baseVp.height;
 
@@ -3815,7 +4454,10 @@
             );
             if (generation !== state.renderGeneration) return false;
 
-            const viewport = pageObj.getViewport({ scale: state.zoomScale });
+            const viewport = pageObj.getViewport({
+              scale: state.zoomScale,
+              rotation: getEffectivePageRotation(pageObj)
+            });
             const dpr = computeSafeRenderDpr(viewport.width, viewport.height, lowMemFallback);
 
             const cssW = Math.floor(viewport.width);
@@ -3823,8 +4465,22 @@
             const pxW = Math.max(1, Math.floor(viewport.width * dpr));
             const pxH = Math.max(1, Math.floor(viewport.height * dpr));
 
+            // A4/A3 도면 혼합 페이지 렌더링 시 위쪽 슬롯 높이 변화로 인한 스크롤 튐 보정 (Scroll Anchoring)
+            const prevSlotHeight = slot.offsetHeight;
+            const prevSlotTop = slot.offsetTop;
+            const prevScrollTop = pdfScrollViewport.scrollTop;
+
             slot.style.width = cssW + 'px';
             slot.style.height = cssH + 'px';
+
+            const heightDelta = cssH - prevSlotHeight;
+            if (
+              heightDelta !== 0 &&
+              !isProgrammaticJump &&
+              prevSlotTop + prevSlotHeight < prevScrollTop + 48
+            ) {
+              pdfScrollViewport.scrollTop = Math.max(0, prevScrollTop + heightDelta);
+            }
 
             const canvas = slot.querySelector('.pdf-page-canvas');
             if (!canvas) throw new Error('캔버스 요소를 찾을 수 없습니다.');
@@ -4038,7 +4694,10 @@
             if (!slot) continue;
             try {
               const page = await state.activePdfDoc.getPage(pNum);
-              const viewport = page.getViewport({ scale: state.zoomScale });
+              const viewport = page.getViewport({
+                scale: state.zoomScale,
+                rotation: getEffectivePageRotation(page)
+              });
               await renderHighlightsForPage(pNum, page, viewport, slot, gen);
               if (typeof page.cleanup === 'function') page.cleanup();
             } catch (_) {}
@@ -4098,7 +4757,66 @@
           state.currentVisiblePage = pageNum;
           const total = typeof totalPages === 'number' ? totalPages : state.activePageCount;
           pdfPageIndicator.textContent = pageNum + '/' + total + 'p';
+          pdfPageIndicator.disabled = total <= 0;
           vfPageIndicator.textContent = pageNum + '/' + total;
+        }
+
+        async function rotatePdf90() {
+          if (!state.activePdfDoc) return;
+          const keepPage = state.currentVisiblePage || 1;
+          state.rotation = (state.rotation + 90) % 360;
+
+          try {
+            const curPageObj = await state.activePdfDoc.getPage(keepPage);
+            const baseVp = curPageObj.getViewport({
+              scale: 1,
+              rotation: getEffectivePageRotation(curPageObj)
+            });
+            state.basePageWidth = baseVp.width;
+            state.basePageHeight = baseVp.height;
+          } catch (_) {}
+
+          buildPageSlots(keepPage);
+          showToast('페이지 회전: ' + state.rotation + '°');
+        }
+
+        async function reloadActivePdfFresh() {
+          if (!state.activeFileName) {
+            showToast('열려 있는 매뉴얼이 없습니다');
+            return;
+          }
+          const targetFile = state.activeFileName;
+          const keepPage = state.currentVisiblePage || 1;
+          const entry = getCatalogEntry(targetFile);
+          if (!entry) return;
+
+          if (entry.source !== 'local') {
+            await deleteRemoteCacheFromDb(targetFile);
+            renderAdminManualList();
+          }
+          pdfDocCache.delete(targetFile);
+          clearPageTextCacheForFile(targetFile);
+          state.activePdfDoc = null;
+          state.activeDocSource = '';
+          showToast('최신 PDF를 다시 불러옵니다');
+          await openPdfInViewer(targetFile, keepPage, false);
+        }
+
+        function openPageJumpModal() {
+          if (!state.activePdfDoc || state.activePageCount <= 0) return;
+          pageJumpRangeDesc.textContent =
+            '이동할 페이지 번호를 입력하세요 (1 ~ ' + state.activePageCount + ').';
+          pageJumpInput.max = String(state.activePageCount);
+          pageJumpInput.value = String(state.currentVisiblePage || 1);
+          pageJumpModal.classList.remove('hidden');
+          setTimeout(function () {
+            pageJumpInput.focus();
+            pageJumpInput.select();
+          }, 30);
+        }
+
+        function closePageJumpModal() {
+          pageJumpModal.classList.add('hidden');
         }
 
         function detectCurrentVisiblePage() {
@@ -4230,6 +4948,91 @@
           return { keywords: terms, requireAll: true };
         }
 
+        function extractMatchSnippet(pageText, matchedTerms) {
+          const clean = String(pageText || '').replace(/\s+/g, ' ').trim();
+          if (!clean) return '';
+          const lower = clean.toLowerCase();
+          let firstPos = -1;
+          for (let i = 0; i < matchedTerms.length; i++) {
+            const idx = lower.indexOf(String(matchedTerms[i] || '').toLowerCase());
+            if (idx !== -1 && (firstPos === -1 || idx < firstPos)) {
+              firstPos = idx;
+            }
+          }
+          if (firstPos === -1) return clean.slice(0, 96);
+          const start = Math.max(0, firstPos - 36);
+          const end = Math.min(clean.length, firstPos + 64);
+          return (start > 0 ? '…' : '') + clean.slice(start, end) + (end < clean.length ? '…' : '');
+        }
+
+        function formatSnippetHtml(snippet, matchedTerms) {
+          const safe = escapeHtml(snippet || '');
+          const cleanTerms = Array.from(new Set((matchedTerms || []).filter(Boolean))).sort(
+            function (a, b) {
+              return b.length - a.length;
+            }
+          );
+          if (cleanTerms.length === 0) return safe;
+          const re = new RegExp(
+            cleanTerms
+              .map(function (t) {
+                return escapeRegExp(escapeHtml(t));
+              })
+              .join('|'),
+            'gi'
+          );
+          return safe.replace(re, function (m) {
+            return '<mark>' + m + '</mark>';
+          });
+        }
+
+        function openMatchListModal() {
+          if (state.searchMatches.length === 0) return;
+          matchListModalTitle.textContent =
+            '검색 결과 목록 (' + state.searchMatches.length + '건)';
+          matchListItems.innerHTML = '';
+
+          const frag = document.createDocumentFragment();
+          state.searchMatches.forEach(function (m, idx) {
+            const li = document.createElement('li');
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'match-sheet-item' + (idx === state.currentMatchIdx ? ' is-active' : '');
+
+            const meta = document.createElement('div');
+            meta.className = 'match-sheet-meta';
+            meta.innerHTML =
+              '<span class="match-sheet-file">' +
+              (idx + 1) +
+              '. ' +
+              escapeHtml(m.fileName) +
+              '</span><span class="match-sheet-page">p.' +
+              m.pageNum +
+              '</span>';
+
+            const snip = document.createElement('div');
+            snip.className = 'match-sheet-snippet';
+            snip.innerHTML = formatSnippetHtml(m.snippet, m.matchedTerms);
+
+            btn.appendChild(meta);
+            btn.appendChild(snip);
+            btn.addEventListener('click', function () {
+              closeMatchListModal();
+              jumpToMatch(idx);
+            });
+
+            li.appendChild(btn);
+            frag.appendChild(li);
+          });
+
+          matchListItems.appendChild(frag);
+          matchListModal.classList.remove('hidden');
+        }
+
+        function closeMatchListModal() {
+          matchListModal.classList.add('hidden');
+        }
+
         function searchAllCatalogPages(keywords, requireAllTerms) {
           const cleanKeywords = Array.from(
             new Set(
@@ -4271,7 +5074,8 @@
                 hits.push({
                   fileName: manual.fileName,
                   pageNum: page.pageNum,
-                  matchedTerms: matchedTerms
+                  matchedTerms: matchedTerms,
+                  snippet: extractMatchSnippet(page.text, matchedTerms)
                 });
               }
             }
@@ -4326,12 +5130,14 @@
           vtMatchIndicator.classList.toggle('hidden', !hasMatches);
           btnPrevMatch.classList.toggle('hidden', !hasMatches);
           btnNextMatch.classList.toggle('hidden', !hasMatches);
+          vfMatchIndicator.classList.toggle('hidden', !hasMatches);
           vfBtnPrev.classList.toggle('hidden', !hasMatches);
           vfBtnNext.classList.toggle('hidden', !hasMatches);
 
           if (hasMatches) {
             const cur = Math.max(0, state.currentMatchIdx);
-            vtMatchIndicator.textContent = '검색 ' + (cur + 1) + '/' + total + '건';
+            vtMatchIndicator.textContent = '검색 ' + (cur + 1) + '/' + total + '건 ▾';
+            vfMatchIndicator.textContent = (cur + 1) + '/' + total + ' ▾';
             const disabledNav = total <= 1;
             btnPrevMatch.disabled = disabledNav;
             btnNextMatch.disabled = disabledNav;
@@ -4401,6 +5207,200 @@
         // =====================================================================
         // 계산기 (탭 1 / 탭 2) & 최근 조회 기록 (localStorage)
         // =====================================================================
+        // =====================================================================
+        // 즐겨찾기 / 현장 조치 메모 (localStorage) & URL 공유 링크
+        // =====================================================================
+        function loadFavorites() {
+          try {
+            const raw = localStorage.getItem(FAVORITES_STORAGE_KEY);
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+          } catch (_) {
+            return [];
+          }
+        }
+
+        function persistFavorites() {
+          try {
+            localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(state.favorites));
+          } catch (_) {}
+        }
+
+        function findFavoriteByAlarm(alarmStr) {
+          return (
+            state.favorites.find(function (f) {
+              return f.alarmStr === alarmStr;
+            }) || null
+          );
+        }
+
+        function syncCurrentMemoUI() {
+          const conv = state.currentConversion;
+          if (!conv) {
+            resultUtilRow.classList.add('hidden');
+            resultMemoBanner.classList.add('hidden');
+            return;
+          }
+
+          resultUtilRow.classList.remove('hidden');
+          const fav = findFavoriteByAlarm(conv.alarmStr);
+          btnToggleFavorite.classList.toggle('is-saved', Boolean(fav));
+          btnToggleFavoriteText.textContent = fav ? '★ 즐겨찾기 · 메모 수정' : '☆ 즐겨찾기 · 메모';
+
+          if (fav && fav.memo) {
+            resultMemoBannerText.textContent = '현장 메모: ' + fav.memo;
+            resultMemoBanner.classList.remove('hidden');
+          } else {
+            resultMemoBanner.classList.add('hidden');
+          }
+        }
+
+        function renderFavorites() {
+          favoritesList.innerHTML = '';
+          favoritesCountHint.textContent = state.favorites.length + '개';
+
+          if (state.favorites.length === 0) {
+            favoritesEmpty.classList.remove('hidden');
+            return;
+          }
+
+          favoritesEmpty.classList.add('hidden');
+
+          state.favorites.forEach(function (item) {
+            const li = document.createElement('li');
+            li.className = 'fav-item';
+
+            const mainBtn = document.createElement('button');
+            mainBtn.type = 'button';
+            mainBtn.className = 'fav-main-btn';
+
+            const codes = document.createElement('div');
+            codes.className = 'fav-codes';
+            codes.innerHTML =
+              '<span class="fav-alarm">★ ' +
+              escapeHtml(item.alarmStr) +
+              '</span><span class="fav-db2">' +
+              escapeHtml(item.db2Address) +
+              '</span>';
+            mainBtn.appendChild(codes);
+
+            if (item.memo) {
+              const memoEl = document.createElement('div');
+              memoEl.className = 'fav-memo';
+              memoEl.textContent = item.memo;
+              mainBtn.appendChild(memoEl);
+            }
+
+            mainBtn.addEventListener('click', function () {
+              manualKeywordInput.value = '';
+              alarmInput.value = item.alarmStr;
+              switchAppTab('alarm', { focusInput: false });
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            const editBtn = document.createElement('button');
+            editBtn.type = 'button';
+            editBtn.className = 'fav-action-btn';
+            editBtn.textContent = '✎';
+            editBtn.title = '메모 수정';
+            editBtn.setAttribute('aria-label', item.alarmStr + ' 메모 수정');
+            editBtn.addEventListener('click', function () {
+              openMemoModal({ alarmStr: item.alarmStr, db2Address: item.db2Address });
+            });
+
+            li.appendChild(mainBtn);
+            li.appendChild(editBtn);
+            favoritesList.appendChild(li);
+          });
+        }
+
+        function openMemoModal(targetMeta) {
+          const target = targetMeta || state.currentConversion;
+          if (!target) return;
+          state.editingMemoTarget = {
+            alarmStr: target.alarmStr,
+            db2Address: target.db2Address
+          };
+
+          const existing = findFavoriteByAlarm(target.alarmStr);
+          memoAlarmLabel.textContent = target.alarmStr;
+          memoDb2Label.textContent = target.db2Address;
+          memoTextarea.value = existing ? existing.memo || '' : '';
+          btnMemoDelete.classList.toggle('hidden', !existing);
+          memoModal.classList.remove('hidden');
+
+          setTimeout(function () {
+            memoTextarea.focus();
+          }, 30);
+        }
+
+        function closeMemoModal() {
+          memoModal.classList.add('hidden');
+          state.editingMemoTarget = null;
+        }
+
+        function saveMemoFromModal() {
+          const target = state.editingMemoTarget;
+          if (!target) return;
+          const memoText = memoTextarea.value.trim();
+
+          const filtered = state.favorites.filter(function (f) {
+            return f.alarmStr !== target.alarmStr;
+          });
+          filtered.unshift({
+            alarmStr: target.alarmStr,
+            db2Address: target.db2Address,
+            memo: memoText,
+            updatedAt: Date.now()
+          });
+          state.favorites = filtered.slice(0, 30);
+          persistFavorites();
+          renderFavorites();
+          syncCurrentMemoUI();
+          closeMemoModal();
+          showToast('즐겨찾기 · 현장 메모가 저장되었습니다');
+        }
+
+        function deleteMemoFromModal() {
+          const target = state.editingMemoTarget;
+          if (!target) return;
+          state.favorites = state.favorites.filter(function (f) {
+            return f.alarmStr !== target.alarmStr;
+          });
+          persistFavorites();
+          renderFavorites();
+          syncCurrentMemoUI();
+          closeMemoModal();
+          showToast('즐겨찾기에서 삭제했습니다');
+        }
+
+        function copyShareLink() {
+          const conv = state.currentConversion;
+          if (!conv) return;
+          const base = window.location.origin + window.location.pathname;
+          let shareUrl = base + '?alarm=' + encodeURIComponent(conv.alarmStr);
+          if (state.activeTab === 'db2') {
+            const db2Simple = conv.db2Address.replace(/^DB2\.DBX/i, '');
+            shareUrl = base + '?db2=' + encodeURIComponent(db2Simple);
+          }
+
+          const onShared = function () {
+            showToast('공유 링크가 복사되었습니다');
+          };
+
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(shareUrl).then(onShared, function () {
+              if (fallbackCopyText(shareUrl)) onShared();
+              else showToast('링크 복사에 실패했습니다');
+            });
+          } else if (fallbackCopyText(shareUrl)) {
+            onShared();
+          } else {
+            showToast('링크 복사에 실패했습니다');
+          }
+        }
+
         function setResultDisplay(value, breakdown, label, conversionMeta, runSearch) {
           resultLabel.textContent = label;
           state.currentConversion = conversionMeta || null;
@@ -4418,6 +5418,8 @@
             resultCard.classList.remove('has-result');
             resultCard.setAttribute('aria-label', '변환 결과 대기 중');
           }
+
+          syncCurrentMemoUI();
 
           if (runSearch) {
             manualKeywordInput.value = '';
@@ -4875,11 +5877,58 @@
         resultCard.addEventListener('click', copyCurrentResult);
         btnClearHistory.addEventListener('click', clearHistory);
 
+        // 즐겨찾기 / 현장 메모 & 공유 링크
+        btnToggleFavorite.addEventListener('click', function () {
+          openMemoModal(state.currentConversion);
+        });
+        btnEditCurrentMemo.addEventListener('click', function () {
+          openMemoModal(state.currentConversion);
+        });
+        btnShareLink.addEventListener('click', copyShareLink);
+
+        btnMemoCancel.addEventListener('click', closeMemoModal);
+        btnMemoDelete.addEventListener('click', deleteMemoFromModal);
+        memoModal.addEventListener('click', function (e) {
+          if (e.target === memoModal) closeMemoModal();
+        });
+        memoForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          saveMemoFromModal();
+        });
+
         // 탭 3 뷰어 컨트롤
         pdfFileSelect.addEventListener('change', function () {
           if (pdfFileSelect.value) {
             openPdfInViewer(pdfFileSelect.value, 1, false);
           }
+        });
+
+        btnReloadActivePdf.addEventListener('click', reloadActivePdfFresh);
+        btnRotatePdf.addEventListener('click', rotatePdf90);
+        vfBtnRotate.addEventListener('click', rotatePdf90);
+
+        pdfPageIndicator.addEventListener('click', openPageJumpModal);
+        vfPageIndicator.addEventListener('click', openPageJumpModal);
+        btnPageJumpCancel.addEventListener('click', closePageJumpModal);
+        pageJumpModal.addEventListener('click', function (e) {
+          if (e.target === pageJumpModal) closePageJumpModal();
+        });
+        pageJumpForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const num = parseInt(pageJumpInput.value, 10);
+          if (isNaN(num) || num < 1 || num > state.activePageCount) {
+            showToast('1 ~ ' + state.activePageCount + ' 사이의 페이지를 입력하세요');
+            return;
+          }
+          closePageJumpModal();
+          scrollToPdfPage(num, false);
+        });
+
+        vtMatchIndicator.addEventListener('click', openMatchListModal);
+        vfMatchIndicator.addEventListener('click', openMatchListModal);
+        btnMatchListClose.addEventListener('click', closeMatchListModal);
+        matchListModal.addEventListener('click', function (e) {
+          if (e.target === matchListModal) closeMatchListModal();
         });
 
         manualKeywordInput.addEventListener('keydown', function (e) {
@@ -4948,10 +5997,11 @@
           setFullscreenViewer(false);
         });
 
-        // PDF 뷰어 영역 더블탭(모바일) 및 더블클릭(데스크톱) 시 전체화면 토글
+        // PDF 뷰어 영역: 2핑거 핀치 줌 + 더블탭 전체화면 토글 + 재시도 버튼
         let lastTapTime = 0;
         let lastTapX = 0;
         let lastTapY = 0;
+        let pinchState = null; // { startDist, startMult, lastScale }
 
         pdfPagesContainer.addEventListener('click', function (e) {
           const retryBtn = e.target && e.target.closest ? e.target.closest('.btn-page-retry') : null;
@@ -4964,8 +6014,74 @@
         });
 
         pdfScrollViewport.addEventListener(
+          'touchstart',
+          function (e) {
+            if (!state.activePdfDoc) return;
+            if (e.touches.length === 2) {
+              lastTapTime = 0;
+              const t1 = e.touches[0];
+              const t2 = e.touches[1];
+              const dist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+              if (dist > 10) {
+                const vpRect = pdfScrollViewport.getBoundingClientRect();
+                const midX = (t1.clientX + t2.clientX) / 2 - vpRect.left + pdfScrollViewport.scrollLeft;
+                const midY = (t1.clientY + t2.clientY) / 2 - vpRect.top + pdfScrollViewport.scrollTop;
+                pinchState = {
+                  startDist: dist,
+                  startMult: state.zoomMultiplier,
+                  lastScale: 1
+                };
+                pdfPagesContainer.classList.add('is-pinching');
+                pdfPagesContainer.style.transformOrigin = midX + 'px ' + midY + 'px';
+              }
+            }
+          },
+          { passive: true }
+        );
+
+        pdfScrollViewport.addEventListener(
+          'touchmove',
+          function (e) {
+            if (!pinchState || e.touches.length !== 2) return;
+            e.preventDefault();
+            const t1 = e.touches[0];
+            const t2 = e.touches[1];
+            const dist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+            const rawRatio = dist / pinchState.startDist;
+            const minRatio = 0.6 / pinchState.startMult;
+            const maxRatio = 3.0 / pinchState.startMult;
+            const clampedRatio = Math.max(minRatio, Math.min(maxRatio, rawRatio));
+            pinchState.lastScale = clampedRatio;
+            pdfPagesContainer.style.transform = 'scale(' + clampedRatio.toFixed(3) + ')';
+          },
+          { passive: false }
+        );
+
+        function finishPinchZoom() {
+          if (!pinchState) return;
+          const targetMult = Math.max(
+            0.6,
+            Math.min(3.0, Math.round(pinchState.startMult * pinchState.lastScale * 20) / 20)
+          );
+          const changed = Math.abs(targetMult - pinchState.startMult) >= 0.08;
+          pinchState = null;
+          pdfPagesContainer.classList.remove('is-pinching');
+          pdfPagesContainer.style.transform = '';
+          pdfPagesContainer.style.transformOrigin = '';
+          if (changed) {
+            applyZoom(Math.abs(targetMult - 1.0) < 0.06 ? 'fit' : 'set', targetMult);
+          }
+        }
+
+        pdfScrollViewport.addEventListener(
           'touchend',
           function (e) {
+            if (pinchState) {
+              if (e.touches.length < 2) {
+                finishPinchZoom();
+              }
+              return;
+            }
             if (e.target && e.target.closest && e.target.closest('.btn-page-retry')) return;
             if (!state.activePdfDoc || e.touches.length > 0 || e.changedTouches.length !== 1) return;
             const touch = e.changedTouches[0];
@@ -4983,6 +6099,14 @@
           { passive: true }
         );
 
+        pdfScrollViewport.addEventListener(
+          'touchcancel',
+          function () {
+            if (pinchState) finishPinchZoom();
+          },
+          { passive: true }
+        );
+
         pdfScrollViewport.addEventListener('dblclick', function (e) {
           if (e.target && e.target.closest && e.target.closest('.btn-page-retry')) return;
           if (!state.activePdfDoc) return;
@@ -4993,6 +6117,12 @@
           if (e.key === 'Escape') {
             if (!adminModal.classList.contains('hidden')) {
               closeAdminModal();
+            } else if (!pageJumpModal.classList.contains('hidden')) {
+              closePageJumpModal();
+            } else if (!matchListModal.classList.contains('hidden')) {
+              closeMatchListModal();
+            } else if (!memoModal.classList.contains('hidden')) {
+              closeMemoModal();
             } else if (state.isFullscreen) {
               setFullscreenViewer(false);
             }
@@ -5030,27 +6160,73 @@
         });
 
         // =====================================================================
-        // 앱 초기화
+        // 앱 초기화 (URL 공유 파라미터 ?alarm= / ?db2= 자동 복원 + 오프라인 백업)
         // =====================================================================
+        function applyInitialUrlQuery() {
+          try {
+            const params = new URLSearchParams(window.location.search || '');
+            const alarmParam = (params.get('alarm') || '').trim();
+            const db2Param = (params.get('db2') || '').trim();
+            const openView = params.get('view') === '1';
+
+            if (/^70\d{4}$/.test(alarmParam)) {
+              alarmInput.value = alarmParam;
+              switchAppTab('alarm', { focusInput: false });
+              if (openView && state.searchMatches.length > 0) {
+                switchAppTab('viewer', { jumpMatchIdx: 0 });
+              }
+              return true;
+            }
+
+            const db2Match = db2Param.match(/^(?:DB2\.)?(?:DBX)?(\d{3,4})\.([0-7])$/i);
+            if (db2Match) {
+              byteInput.value = db2Match[1];
+              setSelectedBit(parseInt(db2Match[2], 10));
+              switchAppTab('db2', { focusInput: false });
+              if (openView && state.searchMatches.length > 0) {
+                switchAppTab('viewer', { jumpMatchIdx: 0 });
+              }
+              return true;
+            }
+          } catch (_) {}
+          return false;
+        }
+
         async function init() {
           state.history = loadHistory();
+          state.favorites = loadFavorites();
           renderHistory();
+          renderFavorites();
           switchAppTab('alarm', { focusInput: false });
 
-          const [localResult, remoteResult, cachedKeys] = await Promise.all([
+          const [localResult, remoteResult, cachedMetaList] = await Promise.all([
             loadLocalManualsFromDb().catch(function () {
               return [];
             }),
             fetchRemoteIndex(),
-            listRemoteCacheKeysFromDb().catch(function () {
+            listRemoteCacheMetaFromDb().catch(function () {
               return [];
             })
           ]);
 
           state.localManuals = localResult;
-          state.remoteManuals = remoteResult;
-          state.cachedRemoteFiles = new Set(cachedKeys);
+          state.remoteManuals = remoteResult.manuals || [];
+          state.isOfflineIndex = Boolean(remoteResult.fromOfflineCache);
+
+          state.cachedRemoteFiles = new Set();
+          state.cachedRemoteMeta = new Map();
+          cachedMetaList.forEach(function (meta) {
+            if (!meta || !meta.fileName) return;
+            state.cachedRemoteFiles.add(meta.fileName);
+            state.cachedRemoteMeta.set(meta.fileName, meta);
+          });
+
           rebuildCatalog();
+          applyInitialUrlQuery();
+
+          if (state.isOfflineIndex && state.remoteManuals.length > 0) {
+            showToast('오프라인 모드: 저장된 매뉴얼 인덱스를 불러왔습니다');
+          }
         }
 
         init();

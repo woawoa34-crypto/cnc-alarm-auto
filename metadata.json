@@ -1,0 +1,6 @@
+{
+  "name": "SINUMERIK 840D 알람 ↔ DB2 변환기",
+  "description": "지멘스 SINUMERIK 840D CNC PLC 알람 번호(70xxxx)와 DB2 비트 어드레스(DB2.DBX___._) 양방향 즉시 변환 및 원격 서버 연동형 원본 PDF 매뉴얼 뷰어",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
